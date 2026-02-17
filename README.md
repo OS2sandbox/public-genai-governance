@@ -4,7 +4,7 @@ You’ve arrived at OS2ai's main GitHub organization – the hub where we collab
 
 **🌟 2026 A year of transformation**  
 
-In october 2025 48 public institutions in Denmark decided to collaborate on a shared open-source GenAI plaform 💪 In 2026 we scale the solution from one municipality to a community of public institutions and at the same time transform the product to form the base of an European interoperable GenAI stack for public institutions - we have work to be done!
+In october 2025 48 public institutions in Denmark decided to collaborate on a shared open-source GenAI platform 💪 In 2026 we scale the solution from one municipality to a community of public institutions and at the same time transform the product to form the base of an European interoperable GenAI stack for public institutions - we have work to be done!
 
 ✅ Establishing a strong community around the product 🤝  
 ✅ Scaling the product for wide usage in the danish public sector 🚀  
