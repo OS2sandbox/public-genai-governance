@@ -49,6 +49,8 @@ treemap-beta
 
 Oversigt fra [huggingfaces klassifikation af modeller](https://huggingface.co/models?sort=trending)
 
+#TODO: Add explanation to most significant models classes (and reorder so to have most important first)
+
 ```mermaid
 block
   columns 4
@@ -181,6 +183,18 @@ block
     nlp_tr["Text Ranking"]
   end
   
+  block:a:1
+    columns 1
+    a_title["Audio"]
+
+    a_tts["Text-to-Speech"]
+    a_tta["Text-to-Audio"]
+    a_asr["Automatic Speech Recognition"]
+    a_ata["Audio-to-Audio"]
+    a_ac["Audio Classification"]
+    a_vad["Voice Activity Detection"]
+  end
+  
   block:mm:2
     columns 2
     mm_title["Multimodel"]:2
@@ -196,19 +210,6 @@ block
     mm_ata["Any-to-Any"]
   end
   
-  block:a:1
-    columns 1
-    a_title["Audio"]
-
-    a_tts["Text-to-Speech"]
-    a_tta["Text-to-Audio"]
-    a_asr["Automatic Speech Recognition"]
-    a_ata["Audio-to-Audio"]
-    a_ac["Audio Classification"]
-    a_vad["Voice Activity Detection"]
-  end
-  
-
   block:cv:2
     columns 2
     cv_title["Computer Vision"]:2
