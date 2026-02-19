@@ -269,3 +269,77 @@ block
   class rl_title title
   class o_title title
 ```
+
+## AI løsning
+
+_Her giver jeg mit personlige bud på hvad der udgør en AI løsning_
+
+```mermaid
+
+architecture-beta
+    group logic(cloud)[Logik]
+
+    service models(database)[Modeller] in logic
+    service prompts(disk)[system prompts] in logic
+
+    service systems(disk)[Fagsystemer]
+    service server(server)[Server] in logic
+```
+
+```mermaid
+block
+  columns 5
+  %%Start(("Start")) space:2
+  input<["Input data"]>(right):2
+  block:logik:1
+    columns 2
+    log_title["Logik"]:2
+    prompts["System prompts"]
+    models["Model(ler)"]
+  end
+  
+  block:cond:1
+    columns 1
+    cond_title["Adgangsrettigheder"]
+    request<["Forespørg"]>(right)
+    return<["Returner"]>(left)
+  end
+
+  systems["Fagsystemer
+           databaser
+           mm"]
+
+  block:ui:1
+    columns 2
+
+    ui_title["UI"]:2
+    
+    ui_chat["Chat"]
+    ui_panel["Drag/drop panel"]
+    ui_voice["Voice"]
+    ui_viz["Visuelt"]
+  end
+
+  out<["Output"]>(down):2
+
+  block:w_cond:1
+    columns 1
+    wcond_title["Skriverettigheder"]
+    wcond_request<[" &nbsp;&nbsp;&nbsp;&nbsp; "]>(right)
+  end
+
+  out_systems["Fagsystemer
+           databaser
+           mm"]
+
+  ui ---> input
+  out ---> ui
+
+  classDef title fill:none, stroke-width:0px
+  
+  class log_title,cond_title,ui_title,wcond_title title
+
+  %%style Start fill:#969;
+  %%style End fill:#696;
+
+```
