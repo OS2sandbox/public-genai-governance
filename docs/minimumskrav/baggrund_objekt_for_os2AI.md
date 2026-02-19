@@ -46,3 +46,92 @@ treemap-beta
     "Billede-/diffusionsmodeller": 1
     "Syns/sprogmodeller": 1
 ```
+
+```mermaid
+block
+  columns 4
+  a["Title"]:4
+  block:multimodel:2
+    columns 2
+    mm_title["Multimodel"]:2
+
+    mm_attt["Audio-text-to-text"] 
+    mm_ittt["Image-Text-to-Text"]
+    mm_itti["Image-Text-to-Image"]
+    mm_ittv["Image-Text-to-Video"]
+    mm_vqa["Visual Question Answering"]
+    mm_dqa["Document Question Answering"]
+    mm_vttt["Video-Text-to-Text"]
+    mm_vdr["Visual Document Retrieval"]
+    mm_ata["Any-to-Any"]
+  end
+
+  block:cv:2
+    columns 2
+    cv_title["Computer Vision"]:2
+    
+    cv_de["Depth Estimation"]
+    cv_ic["Image Classification"]
+    cv_od["Object Detection"]
+    cv_is["Image Segmentation"]
+    cv_tti["Text-to-Image"]
+    cv_itt["Image-to-Text"]
+    cv_iti["Image-to-Image"]
+    cv_itv["Image-to-Video"]
+    cv_uig["Unconditional Image Generation"]
+    cv_vc["Video Classification"]
+    cv_ttv["Text-to-Video"]
+    cv_zsic["Zero-Shot Image Classification"]
+    cv_mg["Mask Generation"]
+    cv_zsod["Zero-Shot Object Detection"]
+    cv_tt3d["Text-to-3D"]
+    cv_it3d["Image-to-3D"]
+    cv_ife["Image Feature Extraction"]
+    cv_kd["Keypoint Detection"]
+    cv_vtc["Video-to-Video"]
+  end
+  
+  block:nlp:2
+    columns 2
+    cv_title["Natural Language Processing"]
+
+    nlp_tc["Text Classification"]
+    nlp_tokc["Token Classification"]
+    nlp_tqa["Table Question Answering"]
+    nlp_qa["Question Answering"]
+    nlp_zsc["Zero-Shot Classification"]
+    nlp_trans["Translation"]
+    nlp_sum["Summarization"]
+    nlp_fe["Feature Extraction"]
+    nlp_tg["Text Generation"]
+    nlp_fm["Fill-Mask"]
+    nlp_ss["Sentence Similarity"]
+    nlp_tr["Text Ranking"]
+  end
+  
+  
+  block:Audio:2
+  columns 2
+
+Text-to-Speech
+Text-to-Audio
+Automatic Speech Recognition
+Audio-to-Audio
+Audio Classification
+Voice Activity Detection
+
+Tabular
+
+Tabular Classification
+Tabular Regression
+Time Series Forecasting
+
+Reinforcement Learning
+
+Reinforcement Learning
+Robotics
+
+Other
+Graph Machine Learning
+
+```
