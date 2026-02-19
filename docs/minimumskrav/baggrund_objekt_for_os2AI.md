@@ -47,6 +47,8 @@ treemap-beta
     "Syns/sprogmodeller": 1
 ```
 
+Oversigt fra [huggingfaces klassifikation af modeller](https://huggingface.co/models?sort=trending)
+
 ```mermaid
 block
   columns 4
@@ -93,7 +95,7 @@ block
   
   block:nlp:2
     columns 2
-    cv_title["Natural Language Processing"]
+    nlp_title["Natural Language Processing"]
 
     nlp_tc["Text Classification"]
     nlp_tokc["Token Classification"]
@@ -110,28 +112,49 @@ block
   end
   
   
-  block:Audio:2
-  columns 2
+  block:a:2
+    columns 2
+    a_title["Audio"]:2
 
-Text-to-Speech
-Text-to-Audio
-Automatic Speech Recognition
-Audio-to-Audio
-Audio Classification
-Voice Activity Detection
+    a_tts["Text-to-Speech"]
+    a_tta["Text-to-Audio"]
+    a_asr["Automatic Speech Recognition"]
+    a_ata["Audio-to-Audio"]
+    a_ac["Audio Classification"]
+    a_vad["Voice Activity Detection"]
+  end
+  
+  block:t:2
+    columns 2
+    t_title["Tabular"]:2
 
-Tabular
+    t_["Tabular Classification"]
+    t_["Tabular Regression"]
+    t_["Time Series Forecasting"]
+  end
 
-Tabular Classification
-Tabular Regression
-Time Series Forecasting
+  block:rl:2
+    columns 2
+    rl_title["Reinforcement Learning"]
 
-Reinforcement Learning
+    rl_rl["Reinforcement Learning"]
+    rl_r["Robotics"]
+  end
 
-Reinforcement Learning
-Robotics
-
-Other
-Graph Machine Learning
-
+  block:o:2
+    columns 2
+    o_title["Other"]
+    
+    o_gml["Graph Machine Learning"]
+  end
+  
+  classDef title fill:none, stroke-width:0px
+  
+  class mm_title title
+  class cv_title title
+  class nlp_title title
+  class a_title title
+  class t_title title
+  class rl_title title
+  class o_title title
 ```
