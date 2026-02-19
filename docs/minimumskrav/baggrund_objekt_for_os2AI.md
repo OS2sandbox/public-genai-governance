@@ -95,7 +95,7 @@ block
   
   block:nlp:2
     columns 2
-    nlp_title["Natural Language Processing"]
+    nlp_title["Natural Language Processing"]:2
 
     nlp_tc["Text Classification"]
     nlp_tokc["Token Classification"]
@@ -135,7 +135,7 @@ block
 
   block:rl:2
     columns 2
-    rl_title["Reinforcement Learning"]
+    rl_title["Reinforcement Learning"]:2
 
     rl_rl["Reinforcement Learning"]
     rl_r["Robotics"]
@@ -143,7 +143,7 @@ block
 
   block:o:2
     columns 2
-    o_title["Other"]
+    o_title["Other"]:2
     
     o_gml["Graph Machine Learning"]
   end
