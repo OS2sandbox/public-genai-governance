@@ -52,8 +52,26 @@ Oversigt fra [huggingfaces klassifikation af modeller](https://huggingface.co/mo
 ```mermaid
 block
   columns 4
-  a["Title"]:4
-  block:multimodel:2
+  
+  block:nlp:2
+    columns 2
+    nlp_title["Natural Language Processing"]:2
+
+    nlp_tc["Text Classification"]
+    nlp_tokc["Token Classification"]
+    nlp_tqa["Table Question Answering"]
+    nlp_qa["Question Answering"]
+    nlp_zsc["Zero-Shot Classification"]
+    nlp_trans["Translation"]
+    nlp_sum["Summarization"]
+    nlp_fe["Feature Extraction"]
+    nlp_tg["Text Generation"]
+    nlp_fm["Fill-Mask"]
+    nlp_ss["Sentence Similarity"]
+    nlp_tr["Text Ranking"]
+  end
+  
+  block:mm:2
     columns 2
     mm_title["Multimodel"]:2
 
@@ -92,25 +110,6 @@ block
     cv_kd["Keypoint Detection"]
     cv_vtc["Video-to-Video"]
   end
-  
-  block:nlp:2
-    columns 2
-    nlp_title["Natural Language Processing"]:2
-
-    nlp_tc["Text Classification"]
-    nlp_tokc["Token Classification"]
-    nlp_tqa["Table Question Answering"]
-    nlp_qa["Question Answering"]
-    nlp_zsc["Zero-Shot Classification"]
-    nlp_trans["Translation"]
-    nlp_sum["Summarization"]
-    nlp_fe["Feature Extraction"]
-    nlp_tg["Text Generation"]
-    nlp_fm["Fill-Mask"]
-    nlp_ss["Sentence Similarity"]
-    nlp_tr["Text Ranking"]
-  end
-  
   
   block:a:2
     columns 2
