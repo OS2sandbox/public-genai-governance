@@ -83,7 +83,7 @@ flowchart LR
     inVizStart =="Input data"==> coreapp
     
     systems@{ 
-      img:"./ill/webpage.png", 
+      img: "./ill/webpage.png", 
       pos: "t", 
       w: 60, 
       h: 60, 
