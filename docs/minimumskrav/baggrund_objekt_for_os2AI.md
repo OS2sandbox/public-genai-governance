@@ -64,7 +64,10 @@ flowchart LR
                         Forretningslogik`"]
         direction TB
         logik["`Logik (Flowlogik/forretningslogik)`"]
-        models@{ shape: lean-l, label: "🔌Model(ler)" }
+        models@{ 
+          shape: lean-l, 
+          label: "🔌Model(ler)"
+          }
         prompts@{ shape: docs, label: "System prompts" }
         tables@{ shape: db, label: "🔌vectorDB\n kollektions"}
         storage@{ shape: win-pane, label: "🔌Midlertidig\n opbevaring" }
@@ -82,7 +85,10 @@ flowchart LR
 
     inVizStart =="Input data"==> coreapp
     
-    systems@{ shape: cloud, label: "Fagsystemer
+    systems@{ 
+      %%shape: cloud,%%
+      shape: braces,
+      label: "Fagsystemer
               databaser
               mm"}
     
@@ -112,7 +118,8 @@ flowchart LR
     end
 
     out_systems@{ 
-      shape: cloud,
+      %%shape: cloud, %% Apparently this doesn't working on github yet%%
+      shape: braces,
       label: "Fagsystemer/ESDH
                 databaser mm 
                 (eller fysisk enhed*)"}
