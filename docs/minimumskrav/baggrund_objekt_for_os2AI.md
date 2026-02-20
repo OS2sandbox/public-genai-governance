@@ -12,7 +12,7 @@ for at vi meningsfuldt i det offerentlige, særligt kommunale, kan dele disse _"
 
 ## AI modeller
 
-Centralt i diskussion står at AI løsningen for at kunne kaldes _AI_ et eller andet sted benytter sig af en eller flere 
+Centralt i diskussion står at AI løsningen, for at kunne kaldes _AI_, et eller andet sted benytter sig af en eller flere 
 af de statistiske (maskin lærings-) modeller, der i daglig tale opfattes som _AI_, særligt _Generativ AI_ (vagt 
 definineret som noget der _generere_ noget) eller _transformer_ baseret AI. 
 
@@ -53,6 +53,18 @@ Oversigt fra [huggingfaces klassifikation af modeller](./huggingface_ai_model_ov
 ## AI løsning
 
 _Her giver jeg mit personlige bud på hvad der udgør en AI løsning_
+
+Det er essentielt at holde sig for øje at en AI løsning er meget mere end en AI model - uanset hvad man kalder den og 
+hvordan vi senere afgrænser den undergruppe af løsninger vi vil beskæftige os med. 
+
+- En AI løsning består af en kerne-applikation, der afspejler den forretningsgang den skal understøtte (eller udfører)
+  - Kerne-applikation udgøres af den (maskinlæsbare) logik der implementere _forretnings_logikken
+  - Alt efter hvordan det er nødvendigt håndterer logikken kald af AI modeller, (vectordatabase) opslag, sammensætning 
+    af prompts og hvad der ellers er nødvendigt for at løse usecase i henhold til de kvalitetskrav der er sat
+- Kerne-applikationen skal have et input og leverer et output
+- Input og output kan komme fra og gå til en brugerflade
+- Inputs kan også trigges af event i systemer
+- Output kan også trigge ændringer i systemer
 
 ```mermaid
 flowchart LR
@@ -113,7 +125,7 @@ flowchart LR
 
     out_systems@{ shape: cloud, label: "Fagsystemer/ESDH
                 databaser mm 
-                (eller fysisk enhed*)"}
+                (eller fysisk enhed/aktuator)"}
     
     inVizEnd --"Skriverettigheder"--> out_systems
     inVizEnd --> ui
