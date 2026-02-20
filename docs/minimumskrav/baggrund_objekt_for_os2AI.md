@@ -82,12 +82,9 @@ flowchart LR
 
     inVizStart =="Input data"==> coreapp
     
-    systems@{ 
-      shape: cloud, 
-      label: "Fagsystemer
+    systems@{ shape: cloud, label: "Fagsystemer
               databaser
-              mm"
-    }
+              mm"}
     
     coreapp <--"Adgangsrettigheder
                 Teknisk adgang
@@ -115,7 +112,7 @@ flowchart LR
     end
 
     out_systems@{ 
-      shape: cloud, 
+      shape: cloud,
       label: "Fagsystemer/ESDH
                 databaser mm 
                 (eller fysisk enhed*)"}
