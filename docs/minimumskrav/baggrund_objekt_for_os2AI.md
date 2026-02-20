@@ -55,130 +55,73 @@ Oversigt fra [huggingfaces klassifikation af modeller](./huggingface_ai_model_ov
 _Her giver jeg mit personlige bud på hvad der udgør en AI løsning_
 
 ```mermaid
+flowchart LR
+    classDef inViz fill:None,stroke-width:0px;
+    inVizStart[" "]:::inViz
+    inVizEnd[" "]:::inViz
 
-architecture-beta
-    group logic(cloud)[Logik]
+    subgraph coreapp["`Kerneapplikation/
+                        Forretningslogik`"]
+        direction TB
+        logik["`Logik (Flowlogik/forretningslogik)`"]
+        models@{ shape: lean-l, label: "Model(ler)" }
+        prompts@{ shape: docs, label: "System prompts" }
+        tables@{ shape: db, label: "vectorDB\n kollektions"}
+        storage@{ shape: win-pane, label: "Midlertidig\n opbevaring" }
+        other@{ shape: rounded, label: "??"}
 
-    service models(database)[Modeller] in logic
-    service prompts(disk)[system prompts] in logic
+        %% Arrange components within coreapp with invisible links %%
+        %% This reflects no logic %%
+        %% vertical links %%
+        logik ~~~ prompts ~~~ storage
+                  prompts ~~~ tables
+        logik ~~~ models ~~~ tables 
+                  models ~~~ other
 
-    service systems(disk)[Fagsystemer]
-    service server(server)[Server] in logic
-```
+    end
 
-```mermaid
-block
-  columns 5
-  %%Start(("Start")) space:2
-  input<["Input data"]>(right):2
-  block:logik:1
-    columns 2
-    log_title["Logik"]:2
-    prompts["System prompts"]
-    models["Model(ler)"]
-  end
-  
-  block:cond:1
-    columns 1
-    cond_title["Adgangsrettigheder"]
-    request<["Forespørg"]>(right)
-    return<["Returner"]>(left)
-  end
-
-  systems["Fagsystemer
-           databaser
-           mm"]
-
-  block:ui:1
-    columns 2
-
-    ui_title["UI"]:2
+    inVizStart =="Input data"==> coreapp
     
-    ui_chat["Chat"]
-    ui_panel["Drag/drop panel"]
-    ui_voice["Voice"]
-    ui_viz["Visuelt"]
-  end
-
-  out<["Output"]>(down):2
-
-  block:w_cond:1
-    columns 1
-    wcond_title["Skriverettigheder"]
-    wcond_request<[" &nbsp;&nbsp;&nbsp;&nbsp; "]>(right)
-  end
-
-  out_systems["Fagsystemer
-           databaser
-           mm"]
-
-  ui ---> input
-  out ---> ui
-
-  classDef title fill:none, stroke-width:0px
-  
-  class log_title,cond_title,ui_title,wcond_title title
-
-  %%style Start fill:#969;
-  %%style End fill:#696;
-
-```
-
-```mermaid
-block
-  columns 5
-  %%Start(("Start")) space:2
-  input<["Input data"]>(right):2
-  block:logik:1
-    columns 2
-    log_title["Logik"]:2
-    prompts["System prompts"]
-    models["Model(ler)"]
-  end
-  
-  block:cond:1
-    columns 1
-    cond_title["Adgangsrettigheder"]
-    request<["Forespørg"]>(right)
-    return<["Returner"]>(left)
-  end
-
-  systems["Fagsystemer
-           databaser
-           mm"]
-
-  block:ui:1
-    columns 2
-
-    ui_title["UI"]:2
+    systems["Fagsystemer
+            databaser
+            mm"]
     
-    ui_chat["Chat"]
-    ui_panel["Drag/drop panel"]
-    ui_voice["Voice"]
-    ui_viz["Visuelt"]
-  end
+    coreapp <--"Adgangsrettigheder
+                Teknisk adgang
+                Juridiske afklaringer"--> systems
 
-  out<["Output"]>(down):2
+    coreapp =="Output data"==> inVizEnd
 
-  block:w_cond:1
-    columns 1
-    wcond_title["Skriverettigheder"]
-    wcond_request<[" &nbsp;&nbsp;&nbsp;&nbsp; "]>(right)
-  end
+    subgraph ui["UI"]
+        direction LR
+        ui_chat["Chat"]
+        ui_panel["Drag/drop panel"]
+        ui_web["Webpage"]
+        ui_voice["Voice"]
+        ui_viz["Visuel oplistning"]
+        ui_board["Dashboard"]
 
-  out_systems["Fagsystemer
-           databaser
-           mm"]
+        %% Arrange components within coreapp with invisible links %%
+        %% This reflects no logic %%
+        inVizAnchor[" "]:::inViz
+        %% pairwise linking %%
+        inVizAnchor ~~~ ui_viz ~~~ ui_voice ~~~ ui_board
+                        ui_viz ~~~ ui_panel ~~~ ui_board
+        inVizAnchor ~~~ ui_chat ~~~ ui_panel ~~~ ui_board
+                        ui_chat ~~~ ui_web ~~~ ui_board
+    end
 
-  ui ---> input
-  out ---> ui
+    out_systems["Fagsystemer/ESDH
+                databaser mm 
+                (eller fysisk enhed*)"]
+    
+    inVizEnd --"Skriverettigheder"--> out_systems
+    inVizEnd --> ui
+    ui --> inVizStart
 
-  classDef title fill:none, stroke-width:0px
-  
-  class log_title,cond_title,ui_title,wcond_title title
-
-  %%style Start fill:#969;
-  %%style End fill:#696;
+    A@{ shape: event, label: "Fagsystem/database 
+    (eller fysisk sensor)" } --"Scheduler
+                                Listener
+                                Monitor"-->inVizStart
 
 ```
-
