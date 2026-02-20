@@ -82,9 +82,16 @@ flowchart LR
 
     inVizStart =="Input data"==> coreapp
     
-    systems["Fagsystemer
-            databaser
-            mm"]
+    systems@{ 
+      img:"./ill/webpage.png", 
+      pos: "t", 
+      w: 60, 
+      h: 60, 
+      constraint: "off", 
+      label: "Fagsystemer
+              databaser
+              mm"
+    }
     
     coreapp <--"Adgangsrettigheder
                 Teknisk adgang
