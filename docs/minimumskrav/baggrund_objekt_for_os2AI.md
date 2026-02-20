@@ -57,8 +57,8 @@ _Her giver jeg mit personlige bud på hvad der udgør en AI løsning_
 ```mermaid
 flowchart LR
     classDef inViz fill:None,stroke-width:0px;
-    inVizStart[" "]:::inViz
-    inVizEnd[" "]:::inViz
+    inVizStart:::inViz@{shape: junction}
+    inVizEnd:::inViz@{shape: junction}
 
     subgraph coreapp["`Kerneapplikation/
                         Forretningslogik`"]
@@ -83,11 +83,7 @@ flowchart LR
     inVizStart =="Input data"==> coreapp
     
     systems@{ 
-      img: "./ill/webpage.png", 
-      pos: "t", 
-      w: 60, 
-      h: 60, 
-      constraint: "off", 
+      shape: cloud, 
       label: "Fagsystemer
               databaser
               mm"
@@ -118,15 +114,17 @@ flowchart LR
                         ui_chat ~~~ ui_web ~~~ ui_board
     end
 
-    out_systems["Fagsystemer/ESDH
+    out_systems@{ 
+      shape: cloud, 
+      label: "Fagsystemer/ESDH
                 databaser mm 
-                (eller fysisk enhed*)"]
+                (eller fysisk enhed*)"}
     
     inVizEnd --"Skriverettigheder"--> out_systems
     inVizEnd --> ui
     ui --> inVizStart
 
-    A@{ shape: event, label: "Fagsystem/database 
+    altInput@{ shape: event, label: "Fagsystem/database 
     (eller fysisk sensor)" } --"Scheduler
                                 Listener
                                 Monitor"-->inVizStart
