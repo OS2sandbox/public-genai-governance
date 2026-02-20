@@ -94,12 +94,12 @@ flowchart LR
 
     subgraph ui["UI"]
         direction LR
-        ui_chat["Chat"]
-        ui_panel["Drag/drop panel"]
-        ui_web["Webpage"]
-        ui_voice["Voice"]
-        ui_viz["Visuel oplistning"]
-        ui_board["Dashboard"]
+        ui_chat@{ shape: in-out, label: "Chat"}
+        ui_panel@{ shape: in-out, label: "Drag/drop panel"}
+        ui_web@{ shape: in-out, label: "Webpage"}
+        ui_voice@{ shape: in-out, label: "Voice"}
+        ui_viz@{ shape: in-out, label: "Visuel oplistning"}
+        ui_board@{ shape: in-out, label: "Dashboard"}
 
         %% Arrange components within coreapp with invisible links %%
         %% This reflects no logic %%
