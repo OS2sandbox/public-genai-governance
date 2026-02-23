@@ -22,3 +22,4 @@ These repositories form the backbone of how we work, collaborate, and build sust
 - Integration for FKA https://github.com/OS2sandbox/os2adgang-planning (under contruction)
 - Setting up infrastrcture https://github.com/OS2sandbox/public-genai-platform-quickstart (under construction)
 - Helmcharts https://github.com/OS2sandbox/public-genai-platform-charts (under contruction)
+- Decription of local hosting of OS2ai in Hjørring Municipality: https://hjk-automatisering.github.io/hjk-talos-cluster-setup/ (under construction)
