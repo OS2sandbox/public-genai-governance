@@ -168,3 +168,142 @@ flowchart LR
                                 Monitor"-->inVizStart
 
 ```
+
+## Navngivning af AI løsninger
+
+- Chatbots (Voice-bots)
+
+  Kaldes også assistenter. Kendetegnet primært via UI'et/interaktionsformen: "Samtalebaseret" (skiftevis). 
+  Oftest i tekst, men også muligt i tale. Kan være meget simpelt (beskeder sendes reletivt direkte fra UI til 
+  sprogmodel, hvis output sendes tilbage til UI'et), men kan også indkoroperer en eller flere af de andre løsninger.
+  
+  Eksempler
+  - [Le Chat](https://chat.mistral.ai)
+  - [Chat GPT](https://chatgpt.com)
+
+- Real-time samtale løsninger
+  
+  Som ovenfor, men med mulighed for at dialogdeltagerne (menneske og bot) kan tale ind over hinanden
+  
+  Eksempel:
+  - [Moshi](https://moshi.chat/)
+  
+- Agenter
+  
+  AI løsninger/systemer der har mulighed for at _agere_ på eget initaitiv. __Bemærk__ (for det kan hurtigt komme til at 
+  lyde dommedagsagtigt) at det altid kun er muligt for systemet at agere med de funktionaliter, der er defineret og 
+  givet adgang til i designet af systemet. Dvs. AI'en kan kun gøre det vi giver den lov til. (Men det indebærer 
+  selvfølgelig også en risici, hvis man giver forskellige værktøjer/adgange der, når de bruges sammen kan lede til 
+  uhensigtsmæssige muligheder)
+
+  - Tools
+  
+    En kodestump/et script der kan aktiveres i det logiske flow i en AI løsning, hvis AI modellen indikere at det skal
+    aktiveres. Et tool vil typisk repræsentere en "normal" (ikke AI baseret) programmel handling, f.eks.:
+  
+    - Bruge en lommeregner til at regne noget sammen
+    - Hente oplysninger fra en database
+    - Oprette elementer i en database
+    - Sende en e-mail
+    - Udføre en API-anmodning 
+
+    Resultatet af handlingen vil som oftest blive sendt til AI-modellen (i hvert fald hvis systemet det er bygget op 
+    omkring en generativ sprogmodel).
+  
+  - Skills
+  
+    Et særligt sæt af instruktioner (en "prompt"-stump) eller flow af kald til (som oftest) sprogmodeller, der indikere
+    hvordan en særlig subprocess skal udføres. Skills kan være:
+  
+    - Domænespecifikke (f.eks. juridisk analyse, medicinsk diagnose)
+    - Opbygget som en række prompt-engineering-trin
+    - Kombineret med eksterne værktøjer (f.eks. databaseopslag)
+
+
+  - Subagent
+    
+    En agent der kan aktiveres af en anden agent.Subagenter bruges til at:
+
+    - Delegere opgaver (f.eks. en hovedagent, der aktiverer en subagent til at håndtere en specifik opgave)
+    - Parallelisere arbejde (f.eks. flere subagenter, der udfører forskellige opgaver samtidigt)
+    - Specialisere funktioner (f.eks. en subagent til dataanalyse, en anden til rapportgenerering)
+
+  Eksempler på agent systemer, kan strække sig fra meget lidt autonomi til alt for meget autonomi:
+  
+  - [n8n](https://n8n.io/ai/) - Automatiseringsframework, der også kan bruges til konstruere agentiske AI systemer/flow
+    (Alternativ fokuseret AI: [Flowise](https://flowiseai.com/))
+  - [Claude Code](https://claude.com/product/claude-code) - agentisk chatbot til programmører
+  - [Open Claw](openclaw.ai) - helt ekstrem agent med personlighed
+  - [Spacebot](https://spacebot.sh/) - måske lidt mere realistisk
+
+- Dokumentforståelse/OCR
+
+  Løsninger, der ekstraherer og fortolker struktureret information fra ustrukturerede dokumenter,
+  herunder scannede papirdokumenter, PDF'er og billeder. Kombinerer ofte:
+
+  - OCR (Optical Character Recognition) til at læse tekst
+  - Identificere felter (fx CPR, datoer, beløb)
+  - Forstå dokumenttype (fx ansøgning, afgørelse, faktura)
+  - Udtrække struktureret data fra fritekst
+  - Sammenfatte eller klassificere indhold
+  
+  Disse løsninger bruges ofte som forbehandling i større AI løsninger (fx før klassifikation eller RAG), 
+  men kan også være selvstændige specialister i dokumenttunge arbejdsgange.
+
+  **Eksempler:**
+  - [Mistral Document AI](https://docs.mistral.ai/capabilities/document_ai)
+  - [Docling](https://www.docling.ai/)
+  
+- Semantisk søgning og vector databaser
+  
+  Søgninger, der går ud over nøgleordsmatching ved at søge ud fra det semantiske indhold (betydningen) af en
+  forespørgsel. Det fungerer ved brug af såkaldte indlejrings/embedding modeller, der gør det muligt at udtrykke orddele
+  som matematiske vektorer. 
+  
+  I fremsøgningen benytter man specielle designs af databaser, der kan søge blandt vektorer, såkaldte vektordatabaser.
+
+  Alle moderne søgemotorer (google, DuckduckGo osv) benytter sig blandt andet af semantisk søgning. 
+  Vectordatabaser understøttes blandt andet af qdrant, ElasticSearch, Postgress osv.
+  
+- MCP
+
+  MCP (Model Context Protocol) er en arkitekturmæssig tilgang til at standardisere hvordan en AI-model
+  får adgang til kontekst og værktøjer (oftest fra eksterne ressourcer). Det er en slags integrations- og 
+  arkitekturstandard. 
+
+  I forhold til borgere og det offentlige kunne 
+  borger.dk eller sundhed.dk tænkes at stille MCP servere til rådighed, så borgeres personlige AI-løsninger vil kunne
+  tilgå den specifikke borgers egne oplysninger direkte. 
+
+
+- RAG (Retrieval-Augmented Generation)
+
+  En arkitektur, der kombinerer:
+  - Retrieval: Hentning af relevant information fra en ekstern kilde, f.eks. et database opslag (måske fra en vektordatabase)
+  - Augmented Generation: Generering af svar baseret på både den hentede information og AI-modellens evne til at sammensætte denne. 
+  
+- Billedgenerering
+
+  AI-løsninger, der genererer billeder ud fra tekstbeskrivelser (text-to-image) eller transformerer eksisterende billeder.
+  Teknologier inkluderer:
+  - Diffusionsmodeller f.eks. [Stable Diffusion](https://stability.ai/)
+  - GANs: Generative Adversarial Networks
+  - Autoregressive modeller (f.eks. [DALL·E](https://openai.com/dall-e-3))
+
+- Diktering/transcribtion
+
+  Løsninger der konverterer tale til tekst (speech-to-text).
+  
+  Kan være:
+  - Real-time (løbende under samtale)
+  - Batch (optagelse behandles efterfølgende)
+  
+  Anvendes fx til:
+  - Referatskrivning
+  - Journalisering
+  - Dokumentation af samtaler
+  
+  Kan kombineres med:
+  - Automatisk opsummering
+  - Strukturering i skabeloner
+  - Klassifikation
