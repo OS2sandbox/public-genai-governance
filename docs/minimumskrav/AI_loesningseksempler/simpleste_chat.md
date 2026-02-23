@@ -48,10 +48,10 @@ flowchart TD
 
         respond([Return response])
 
-        storage <--> ctx --> compose
-        start ---> compose --> callModel --> store --> respond
+        storage <--> ctx --> compose --> callModel --> store --> storage
+        start ---> compose 
         prompt ---> compose
-        store --> storage
+        store --> respond
     end
 
     respond -->|Response| chat
