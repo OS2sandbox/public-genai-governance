@@ -16,13 +16,20 @@ flowchart TD
     subgraph core["Kerneapplikation/ Forretningslogik"]
         direction TB
         
-        inVizAnchor:::inViz@{shape: junction}
-        
         subgraph inputSrcs[" "]
+
+            inVizAnchor:::inViz@{shape: junction}
+
             storage@{ shape: win-pane, label: "Conversation history" }
             start([Receive message])
             prompt@{ shape: doc, label: "System prompt: 
-                                         Du er en hjælpsom..." }     
+                                         Du er en hjælpsom..." }
+                                         
+            inVizAnchor ~~~ storage 
+            inVizAnchor ~~~ start
+            inVizAnchor ~~~ prompt
+        
+
         end
         
         ctx["Load conversation history
@@ -41,10 +48,6 @@ flowchart TD
 
         respond([Return response])
 
-        inVizAnchor ~~~ storage 
-        inVizAnchor ~~~ start
-        inVizAnchor ~~~ prompt
-        
         storage <--> ctx --> compose
         start ---> compose --> callModel --> store --> respond
         prompt ---> compose
