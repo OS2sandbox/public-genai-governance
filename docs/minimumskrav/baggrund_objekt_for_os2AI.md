@@ -176,6 +176,8 @@ flowchart LR
 - [Dokument forståelse](./AI_loesningseksempler/doc_digestion.md)
 - [Agentisk RAG over vejledning til lønsystem](./AI_loesningseksempler/agentic_rag.md)
 - [Tolke løsning](./AI_loesningseksempler/tolkning.md)
+- [Aflæsning af bilag](./AI_loesningseksempler/bilagskontrol.md)
+- [Kontrol af konsistens i indkøbssystem](./AI_loesningseksempler/db_konsistens_kontrol.md)
 
 ## Navngivning af AI løsninger
 
