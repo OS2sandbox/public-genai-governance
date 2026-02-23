@@ -44,8 +44,8 @@ flowchart TD
 
         ctx <--> storage 
         ctx --> compose --> callModel --> store --> storage
-        start ---> compose 
-        prompt ---> compose
+        start --> compose 
+        prompt --> compose
         store --> respond
     end
 
