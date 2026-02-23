@@ -16,22 +16,17 @@ flowchart TD
     subgraph core["Kerneapplikation/ Forretningslogik"]
         direction TB
         
-        subgraph inputSrcs[" "]
-
-            inVizAnchor:::inViz@{shape: junction}
-            start([Receive message])
-            prompt@{ shape: doc, label: "System prompt: 
-                                         Du er en hjælpsom..." }
-            ctx["Load conversation history
-                from temporary storage"]
-                                         
-            inVizAnchor ~~~ ctx
-            inVizAnchor ~~~ start
-            inVizAnchor ~~~ prompt
-            
-
-        end
-        
+        inVizAnchor:::inViz@{shape: junction}
+        start([Receive message])
+        prompt@{ shape: doc, label: "System prompt: 
+                                     Du er en hjælpsom..." }
+        ctx["Load conversation history
+            from temporary storage"]
+                                     
+        inVizAnchor ~~~ ctx
+        inVizAnchor ~~~ start
+        inVizAnchor ~~~ prompt
+    
         storage@{ shape: win-pane, label: "Conversation history" }
              
         compose["Compose prompt:
