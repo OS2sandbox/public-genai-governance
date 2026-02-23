@@ -5,6 +5,7 @@ Et konkret eksempel på hvordan logikken i en AI løsning kunne se ud. Diagramme
 
 ```mermaid
 flowchart TD
+    classDef inViz fill:None,stroke-width:0px;
 
     subgraph UI["UI"]
         chat["Chat Interface"]
@@ -13,8 +14,9 @@ flowchart TD
     chat -->|User message| start
 
     subgraph core["Kerneapplikation/ Forretningslogik"]
-
         direction TB
+        
+        inVizAnchor:::inViz@{shape: junction}
 
         start([Receive message])
 
@@ -23,7 +25,8 @@ flowchart TD
         ctx["Load conversation history
              from temporary storage"]
              
-        prompt@{ shape: docs, label: "System prompt: Du er en hjælpsom..." }     
+        prompt@{ shape: doc, label: "System prompt: 
+                                     Du er en hjælpsom..." }     
 
         compose["Compose prompt:
                 - System prompt
@@ -38,6 +41,7 @@ flowchart TD
 
         respond([Return response])
 
+        inVizAnchor ~~~ start & storage & prompt
         start --> compose --> callModel --> store --> respond
         storage <--> ctx --> compose
         prompt --> compose
