@@ -19,21 +19,20 @@ flowchart TD
         subgraph inputSrcs[" "]
 
             inVizAnchor:::inViz@{shape: junction}
-
-            storage@{ shape: win-pane, label: "Conversation history" }
             start([Receive message])
             prompt@{ shape: doc, label: "System prompt: 
                                          Du er en hjælpsom..." }
+            ctx["Load conversation history
+                from temporary storage"]
                                          
-            inVizAnchor ~~~ storage 
+            inVizAnchor ~~~ ctx
             inVizAnchor ~~~ start
             inVizAnchor ~~~ prompt
-        
+            
 
         end
         
-        ctx["Load conversation history
-             from temporary storage"]
+        storage@{ shape: win-pane, label: "Conversation history" }
              
         compose["Compose prompt:
                 - System prompt
@@ -48,7 +47,8 @@ flowchart TD
 
         respond([Return response])
 
-        storage <--> ctx --> compose --> callModel --> store --> storage
+        ctx <--> storage 
+        ctx --> compose --> callModel --> store --> storage
         start ---> compose 
         prompt ---> compose
         store --> respond
