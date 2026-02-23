@@ -4,24 +4,26 @@ Et konkret eksempel på hvordan logikken i en AI løsning kunne se ud. Diagramme
 [generelle overblik af komponenter i en AI løsning](../baggrund_objekt_for_os2AI.md#ai-løsning)
 
 ```mermaid
-flowchart LR
+flowchart TD
 
-    subgraph UI["Chat UI"]
-        user["User"]
+    subgraph UI["UI"]
         chat["Chat Interface"]
-        user --> chat
     end
 
-    chat -->|User message| core
+    chat -->|User message| start
 
-    subgraph core["Core Application / Business Logic"]
+    subgraph core["Kerneapplikation/ Forretningslogik"]
 
         direction TB
 
         start([Receive message])
 
+        storage@{ shape: win-pane, label: "Conversation history" }
+        
         ctx["Load conversation history
              from temporary storage"]
+             
+        prompt@{ shape: docs, label: "System prompt: Du er en hjælpsom..." }     
 
         compose["Compose prompt:
                 - System prompt
@@ -30,23 +32,17 @@ flowchart LR
 
         callModel["Call LLM"]
 
-        validate{"Output valid?
-                  (length / safety /
-                   format checks)"}
-
-        retry["Re-prompt or adjust
-               parameters"]
-
         store["Store:
                - User message
                - Model response"]
 
         respond([Return response])
 
-        start --> ctx --> compose --> callModel --> validate
-        validate -- No --> retry --> callModel
-        validate -- Yes --> store --> respond
+        start --> compose --> callModel --> store --> respond
+        storage <--> ctx --> compose
+        prompt --> compose
+        store --> storage
     end
 
-    core -->|Response| chat
+    respond -->|Response| chat
 ```
