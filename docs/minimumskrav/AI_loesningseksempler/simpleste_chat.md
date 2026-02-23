@@ -41,11 +41,14 @@ flowchart TD
 
         respond([Return response])
 
-        inVizAnchor ~~~ start & storage & prompt
-        start --> compose --> callModel --> store --> respond
+        inVizAnchor ~~~ start 
+        inVizAnchor ~~~ storage 
+        inVizAnchor ~~~ prompt
+        
         storage <--> ctx --> compose
-        prompt --> compose
-        store -----> storage
+        start ---> compose --> callModel --> store --> respond
+        prompt ---> compose
+        store --> storage
     end
 
     respond -->|Response| chat
