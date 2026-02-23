@@ -18,9 +18,9 @@ flowchart TD
         
         inVizAnchor:::inViz@{shape: junction}
 
-        start([Receive message])
-
         storage@{ shape: win-pane, label: "Conversation history" }
+
+        start([Receive message])
         
         ctx["Load conversation history
              from temporary storage"]
@@ -41,8 +41,8 @@ flowchart TD
 
         respond([Return response])
 
-        inVizAnchor ~~~ start 
         inVizAnchor ~~~ storage 
+        inVizAnchor ~~~ start
         inVizAnchor ~~~ prompt
         
         storage <--> ctx --> compose
