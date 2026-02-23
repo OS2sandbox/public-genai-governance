@@ -171,7 +171,7 @@ flowchart LR
 
 ## Navngivning af AI løsninger
 
-- Chatbots (Voice-bots)
+- ### Chatbots (Voice-bots)
 
   Kaldes også assistenter. Kendetegnet primært via UI'et/interaktionsformen: "Samtalebaseret" (skiftevis). 
   Oftest i tekst, men også muligt i tale. Kan være meget simpelt (beskeder sendes reletivt direkte fra UI til 
@@ -181,14 +181,14 @@ flowchart LR
   - [Le Chat](https://chat.mistral.ai)
   - [Chat GPT](https://chatgpt.com)
 
-- Real-time samtale løsninger
+- ### Real-time samtale løsninger
   
   Som ovenfor, men med mulighed for at dialogdeltagerne (menneske og bot) kan tale ind over hinanden
   
   Eksempel:
   - [Moshi](https://moshi.chat/)
   
-- Agenter
+- ### Agenter
   
   AI løsninger/systemer der har mulighed for at _agere_ på eget initaitiv. __Bemærk__ (for det kan hurtigt komme til at 
   lyde dommedagsagtigt) at det altid kun er muligt for systemet at agere med de funktionaliter, der er defineret og 
@@ -196,7 +196,7 @@ flowchart LR
   selvfølgelig også en risici, hvis man giver forskellige værktøjer/adgange der, når de bruges sammen kan lede til 
   uhensigtsmæssige muligheder)
 
-  - Tools
+  - #### Tools
   
     En kodestump/et script der kan aktiveres i det logiske flow i en AI løsning, hvis AI modellen indikere at det skal
     aktiveres. Et tool vil typisk repræsentere en "normal" (ikke AI baseret) programmel handling, f.eks.:
@@ -210,7 +210,7 @@ flowchart LR
     Resultatet af handlingen vil som oftest blive sendt til AI-modellen (i hvert fald hvis systemet det er bygget op 
     omkring en generativ sprogmodel).
   
-  - Skills
+  - #### Skills
   
     Et særligt sæt af instruktioner (en "prompt"-stump) eller flow af kald til (som oftest) sprogmodeller, der indikere
     hvordan en særlig subprocess skal udføres. Skills kan være:
@@ -220,7 +220,7 @@ flowchart LR
     - Kombineret med eksterne værktøjer (f.eks. databaseopslag)
 
 
-  - Subagent
+  - #### Subagent
     
     En agent der kan aktiveres af en anden agent.Subagenter bruges til at:
 
@@ -236,7 +236,7 @@ flowchart LR
   - [Open Claw](openclaw.ai) - helt ekstrem agent med personlighed
   - [Spacebot](https://spacebot.sh/) - måske lidt mere realistisk
 
-- Dokumentforståelse/OCR
+- ### Dokumentforståelse/OCR
 
   Løsninger, der ekstraherer og fortolker struktureret information fra ustrukturerede dokumenter,
   herunder scannede papirdokumenter, PDF'er og billeder. Kombinerer ofte:
@@ -250,11 +250,11 @@ flowchart LR
   Disse løsninger bruges ofte som forbehandling i større AI løsninger (fx før klassifikation eller RAG), 
   men kan også være selvstændige specialister i dokumenttunge arbejdsgange.
 
-  **Eksempler:**
+  Eksempler:
   - [Mistral Document AI](https://docs.mistral.ai/capabilities/document_ai)
   - [Docling](https://www.docling.ai/)
   
-- Semantisk søgning og vector databaser
+- ### Semantisk søgning og vector databaser
   
   Søgninger, der går ud over nøgleordsmatching ved at søge ud fra det semantiske indhold (betydningen) af en
   forespørgsel. Det fungerer ved brug af såkaldte indlejrings/embedding modeller, der gør det muligt at udtrykke orddele
@@ -265,7 +265,7 @@ flowchart LR
   Alle moderne søgemotorer (google, DuckduckGo osv) benytter sig blandt andet af semantisk søgning. 
   Vectordatabaser understøttes blandt andet af qdrant, ElasticSearch, Postgress osv.
   
-- MCP
+- ### MCP
 
   MCP (Model Context Protocol) er en arkitekturmæssig tilgang til at standardisere hvordan en AI-model
   får adgang til kontekst og værktøjer (oftest fra eksterne ressourcer). Det er en slags integrations- og 
@@ -276,13 +276,13 @@ flowchart LR
   tilgå den specifikke borgers egne oplysninger direkte. 
 
 
-- RAG (Retrieval-Augmented Generation)
+- ### RAG (Retrieval-Augmented Generation)
 
   En arkitektur, der kombinerer:
   - Retrieval: Hentning af relevant information fra en ekstern kilde, f.eks. et database opslag (måske fra en vektordatabase)
   - Augmented Generation: Generering af svar baseret på både den hentede information og AI-modellens evne til at sammensætte denne. 
   
-- Billedgenerering
+- ### Billedgenerering
 
   AI-løsninger, der genererer billeder ud fra tekstbeskrivelser (text-to-image) eller transformerer eksisterende billeder.
   Teknologier inkluderer:
@@ -290,7 +290,7 @@ flowchart LR
   - GANs: Generative Adversarial Networks
   - Autoregressive modeller (f.eks. [DALL·E](https://openai.com/dall-e-3))
 
-- Diktering/transcribtion
+- ### Diktering/transcribtion
 
   Løsninger der konverterer tale til tekst (speech-to-text).
   
