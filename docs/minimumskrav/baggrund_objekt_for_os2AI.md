@@ -169,6 +169,14 @@ flowchart LR
 
 ```
 
+### Konkrete eksempler på AI løsninger
+
+- [Simple sprogmodel chat](./AI_loesningseksempler/simpleste_chat.md)
+- [Søgning i byrådsreferater](./AI_loesningseksempler/soegning.md)
+- [Dokument forståelse](./AI_loesningseksempler/doc_digestion.md)
+- [Agentisk RAG over vejledning til lønsystem](./AI_loesningseksempler/agentic_rag.md)
+- [Tolke løsning](./AI_loesningseksempler/tolkning.md)
+
 ## Navngivning af AI løsninger
 
 - ### Chatbots (Voice-bots)
