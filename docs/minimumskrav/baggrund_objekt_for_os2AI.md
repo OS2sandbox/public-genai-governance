@@ -10,6 +10,32 @@ derfor et forsøg på at sætte en ramme for diskussion af hvordan objektet skal
 muliggøre en senere diskussion af minimumskrav til _"AI assistenter"_/_"AI specialister"_/eller-hvad-vi-nu-vil-kalde-det
 for at vi meningsfuldt i det offerentlige, særligt kommunale, kan dele disse _"ting"_ med hinanden.
 
+## Hvad dækker "AI" over
+
+_AI_/Kunstig intelligens er et diffust begreb, hvilket gør det essentielt er blive skarpe på hvad vi i os2AI snakker om,
+når vi snakker om AI for at undgå at tale forbi hinanden.
+
+AI repræsenterer helt overordnet en underklasse under automatisering. 
+AI er kendetegnet ved at [mennesker vurderer](## "dvs den fælles konsensus") at disse automatiseringer emulerer
+noget som kun mennesker tidligere har kunnet gøre; eller som mennesker vurdere kræver menneskelig intelligens at udføre.
+
+Da AI netop er en "maskine", vil AI'en demonsterer, at en maskine nu kan udføre de opgaver, som kun mennesker tidligere har 
+kunnet udfører og med tiden vil det flytte den generelle konsensus, så det der tidligere blev betragtet som AI ikke 
+nødvendigvis længere betragtes som AI og det der betragtes som AI i dag ikke nødvendigvis betragtes som AI om nogle år. 
+
+Alan Türings klassiske karakteritisk af AI er, at hvis et menneske (lad os kalde hende Anne) og en maskine, som Anne 
+ikke ved er en maskine (det kan være maskine bliver kaldt Bente i eksperimentet) har mulighed for at inteagere.
+Hvis Anne ikke bliver klar over at Bente er er en maskine gennem deres inteaktionen, så besidder Bente, altså maskinen, 
+kunstig intelligens. 
+
+I EU definere vi "AI" lidt mindre malerisk jf AI Act'en, som:
+> AI-system: et maskinbaseret system, som er udformet med henblik på at
+fungere med en varierende grad af autonomi, og som efter idriftsættelsen
+kan udvise en tilpasningsevne, og som til eksplicitte eller implicitte mål af
+det input, det modtager, udleder, hvordan det kan generere output såsom
+forudsigelser, indhold, anbefalinger eller beslutninger, som kan påvirke fy-
+siske eller virtuelle miljøer.
+
 ## AI modeller
 
 Centralt i diskussion står at AI løsningen, for at kunne kaldes _AI_, et eller andet sted benytter sig af en eller flere 
@@ -59,12 +85,17 @@ hvordan vi senere afgrænser den undergruppe af løsninger vi vil beskæftige os
 
 - En AI løsning består af en kerne-applikation, der afspejler den forretningsgang den skal understøtte (eller udfører)
   - Kerne-applikation udgøres af den (maskinlæsbare) logik der implementere _forretnings_logikken
-  - Alt efter hvordan det er nødvendigt håndterer logikken kald af AI modeller, (vectordatabase) opslag, sammensætning 
-    af prompts og hvad der ellers er nødvendigt for at løse usecase i henhold til de kvalitetskrav der er sat
+  - Alt efter hvordan det er nødvendigt, håndterer logikken kald af AI modeller, (vectordatabase) opslag, sammensætning 
+    af prompts og hvad der ellers er nødvendigt for at løse usecasen i henhold til de kvalitetskrav der er sat
 - Kerne-applikationen skal have et input og leverer et output
 - Input og output kan komme fra og gå til en brugerflade
 - Inputs kan også trigges af event i systemer
 - Output kan også trigge ændringer i systemer
+
+Da en moderne AI løsning ikke er umiddelbart gennemskuelig - i mange tilfælde vil samme input ikke nødvendigvis give 
+samme output - er en AI løsning også defineret af de performance krav der er stillet til den og i høj grad hvordan man
+har testet at løsningen lever op til de krav. Dette er essentiel information, hvis andre også skal kunne vurdere om de 
+kan tage løsningen i brug.
 
 ```mermaid
 flowchart LR
