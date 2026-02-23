@@ -41,7 +41,7 @@ flowchart TD
         start --> compose --> callModel --> store --> respond
         storage <--> ctx --> compose
         prompt --> compose
-        store --> storage
+        store -----> storage
     end
 
     respond -->|Response| chat
