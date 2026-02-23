@@ -17,17 +17,17 @@ flowchart TD
         direction TB
         
         inVizAnchor:::inViz@{shape: junction}
-
-        storage@{ shape: win-pane, label: "Conversation history" }
-
-        start([Receive message])
+        
+        subgraph inputSrcs[" "]
+            storage@{ shape: win-pane, label: "Conversation history" }
+            start([Receive message])
+            prompt@{ shape: doc, label: "System prompt: 
+                                         Du er en hjælpsom..." }     
+        end
         
         ctx["Load conversation history
              from temporary storage"]
              
-        prompt@{ shape: doc, label: "System prompt: 
-                                     Du er en hjælpsom..." }     
-
         compose["Compose prompt:
                 - System prompt
                 - Conversation history
