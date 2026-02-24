@@ -15,7 +15,7 @@ flowchart TD
 
     system@{ shape: cloud, label: "Referat opbevaringssystem"}
 
-    subgraph core["Core Application / Business Logic"]
+    subgraph core["`Core Application / Business Logic`"]
         direction TB
         
         vdb@{ shape: db, label: "vectorDB\n kollektion"}
@@ -33,7 +33,7 @@ flowchart TD
         
         store --> vdb
         
-        subgraph retrival_pipe 
+        subgraph retrive["Retrival pipeline"]
             
             start([Receive search query])
     
