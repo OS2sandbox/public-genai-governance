@@ -173,11 +173,11 @@ flowchart LR
 
 - [Simple sprogmodel chat](./AI_loesningseksempler/simpleste_chat.md)
 - [Søgning i byrådsreferater](./AI_loesningseksempler/soegning.md)
-- [Dokument forståelse](./AI_loesningseksempler/doc_digestion.md)
-- [Agentisk RAG over vejledning til lønsystem](./AI_loesningseksempler/agentic_rag.md)
-- [Tolke løsning](./AI_loesningseksempler/tolkning.md)
-- [Aflæsning af bilag](./AI_loesningseksempler/bilagskontrol.md)
-- [Kontrol af konsistens i indkøbssystem](./AI_loesningseksempler/db_konsistens_kontrol.md)
+- [Dokument forståelse](./AI_loesningseksempler/doc_digestion.md) (Pt. kun chatgpt udkast - ikke gennemarbejdet/verificeret)
+- [Agentisk RAG over vejledning til lønsystem](./AI_loesningseksempler/agentic_rag.md) (Pt. kun chatgpt udkast - ikke gennemarbejdet/verificeret)
+- [Tolke løsning](./AI_loesningseksempler/tolkning.md) (Pt. kun chatgpt udkast - ikke gennemarbejdet/verificeret)
+- [Aflæsning af bilag](./AI_loesningseksempler/bilagskontrol.md) (Pt. kun chatgpt udkast - ikke gennemarbejdet/verificeret)
+- [Kontrol af konsistens i indkøbssystem](./AI_loesningseksempler/db_konsistens_kontrol.md) (Pt. kun chatgpt udkast - ikke gennemarbejdet/verificeret)
 
 ## Navngivning af AI løsninger
 
