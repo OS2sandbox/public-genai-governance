@@ -14,6 +14,13 @@ til at sætte op. Særligt to ting er meget simplificeret:
   prøve at modificerer denne, hvis den ikke vurdere at de umiddelbare resultater
   svarer på brugeren forespørgsel.
 
+_Bemærk at der i denne løsning skal være en embedding/indlejringsmodel tilgængelig.
+I nogen løsninger viser det sig at man får den bedste fremsøgning, hvis den 
+indlejringsmodel man bruger er specifik trænet (tilpasset) det sæt af dokumenter
+man vil være semantisk søgbart. **Hvis det er tilfældet** kræver det også udvikling/kuratering
+af træningsdata samt opsætning af en træningspipeling, hvor modellen muligvis skal
+gentrænes med hvert år._ 
+
 ```mermaid
 flowchart TD
     classDef optional stroke-width:2px,stroke-dasharray: 5 5
