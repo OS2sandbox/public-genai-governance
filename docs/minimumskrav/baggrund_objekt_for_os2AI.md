@@ -60,10 +60,10 @@ block
   columns 4
   
   classDef title fill:none, stroke-width:0px
-  class dia_title title
   
   dia_title["AI modeller - “GenAI”/Transformerbaseret (mostly)/New stuff"]:4
-
+  class dia_title title
+  
   llm["Sprogmodeller"]
   trans["Oversættelsesmodeller"]
   embed["Indlejringsmodeller"]
