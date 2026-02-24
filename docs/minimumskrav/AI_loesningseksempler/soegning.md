@@ -8,7 +8,7 @@ Et konkret eksempel på hvordan logikken i en AI løsning kunne se ud. Diagramme
 flowchart TD
     
     subgraph UI["UI - Webpage/Application"]
-        user@{ shape: in-out, label: "Input/Search field"} -->|Search query| start
+        user@{ shape: in-out, label: "Input/Search field"} 
         
         results@{ shape: in-out, label: "Output list element"}
     end
@@ -58,7 +58,7 @@ flowchart TD
     
             return([Return result list])
     
-            start --> embed --> search --> filter --> rank --> format --> return
+            user-->|Search query| start --> embed --> search --> filter --> rank --> format --> return
             
         end
         
