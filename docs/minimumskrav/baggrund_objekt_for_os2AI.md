@@ -55,22 +55,23 @@ Min egen top-of-head oversigt over de forskellige typer af moderne (transformer-
 ---
 config:
   theme: default
-  layout: elk
-  treemap:
-    diagramPadding: 200
-    showValues: false
-    labelFontSize: 14
 ---
-treemap-beta
-"AI modeller - “GenAI”/Transformerbaseret (mostly)/New stuff"
-    "Sprogmodeller": 1
-    "Oversættelsesmodeller": 1
-    "Indlejringsmodeller": 1
-    "Tale til tekst modeller": 1
-    "Tekst til tale modeller": 1
-    "Tekst klassifikationsmodeller": 1
-    "Billede-/diffusionsmodeller": 1
-    "Syns/sprogmodeller": 1
+block
+  columns 4
+  
+  classDef title fill:none, stroke-width:0px
+  class dia_title title
+  
+  dia_title["AI modeller - “GenAI”/Transformerbaseret (mostly)/New stuff"]:4
+
+  llm["Sprogmodeller"]
+  trans["Oversættelsesmodeller"]
+  embed["Indlejringsmodeller"]
+  stt["Tale til tekst modeller"]
+  tts["Tekst til tale modeller"]
+  clas["Tekst klassifikationsmodeller"]
+  img["Billede-/diffusionsmodeller"]
+  vlm["Syns/sprogmodeller"]
 ```
 
 Oversigt fra [huggingfaces klassifikation af modeller](./huggingface_ai_model_oversigt.md)
