@@ -5,60 +5,69 @@ Et konkret eksempel på hvordan logikken i en AI løsning kunne se ud. Diagramme
 
 
 ```mermaid
-flowchart LR
+flowchart TD
+    
+    subgraph UI["UI - Webpage/Application"]
+        user@{ shape: in-out, label: "Input/Search field"} -->|Search query| start
+        
+        results@{ shape: in-out, label: "Output list element"}
+    end
 
-    user["User (Search field)"] -->|Search query| core
+    system@{ shape: cloud, label: "Referat opbevaringssystem"}
 
     subgraph core["Core Application / Business Logic"]
-
         direction TB
-
-        start([Receive search query])
-
-        auth{"User has read access
-              to minutes?"}
-
-        deny["Return access denied"]
-
-        embed["Create embedding
-               of query"]
-
-        search["Vector DB similarity search"]
-
-        filter["Filter by:
-                - Access rights
-                - Date
-                - Board type"]
-
-        rank["Rank by:
-              - Similarity score
-              - Recency
-              - Metadata weight"]
-
-        format["Format as:
-                - Title
-                - Snippet
-                - Link"]
-
-        return([Return result list])
-
-        start --> auth
-        auth -- No --> deny
-        auth -- Yes --> embed --> search --> filter --> rank --> format --> return
+        
+        vdb@{ shape: db, label: "vectorDB\n kollektion"}
+        %% Re-indexing flow
+        subgraph ingest["Ingestion Pipeline"]
+    
+            minutes(["New/Updated Minutes"])
+            chunk["Chunk document"]
+            embed2["Generate embeddings"]
+            store["Update vector DB collection with new/update minutes
+                   (and relevant metadata)"]
+    
+            minutes --> chunk --> embed2 --> store
+        end
+        
+        store --> vdb
+        
+        subgraph retrival_pipe 
+            
+            start([Receive search query])
+    
+            embed["Create embedding
+                   of query"]
+    
+            search["Vector DB similarity search"]
+    
+            filter["Filter by:
+                    - Date
+                    - Board type"]
+    
+            rank["Rank by:
+                  - Similarity score
+                  - Recency
+                  - Metadata weight"]
+    
+            format["Format as:
+                    - Title
+                    - Snippet
+                    - Link"]
+    
+            return([Return result list])
+    
+            start --> embed --> search --> filter --> rank --> format --> return
+            
+        end
+        
+        search <--> vdb
+        
     end
+    system -->|Læserettigheder| minutes
+    
+    return --> results
 
-    return --> results["Search Results Page"]
-
-    %% Re-indexing flow
-    subgraph reindex["Indexing Pipeline"]
-
-        minutes["New/Updated Minutes"]
-        checkAccess["Check indexing rights"]
-        chunk["Chunk document"]
-        embed2["Generate embeddings"]
-        store["Store in vector DB
-               with metadata"]
-
-        minutes --> checkAccess --> chunk --> embed2 --> store
-    end
+    
 ```
