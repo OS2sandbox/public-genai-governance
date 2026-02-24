@@ -24,7 +24,8 @@ flowchart TD
     
             minutes(["New/Updated Minutes"])
             chunk["Chunk document"]
-            embed2["Generate embeddings"]
+            embed2["Generate embeddings
+                    (Call embedding model)"]
             store["Update vector DB collection with new/update minutes
                    (and relevant metadata)"]
     
@@ -37,19 +38,10 @@ flowchart TD
             
             start([Receive search query])
     
-            embed["Create embedding
-                   of query"]
+            embed["Create embedding of query
+                   (Call embedding model)"]
     
             search["Vector DB similarity search"]
-    
-            filter["Filter by:
-                    - Date
-                    - Board type"]
-    
-            rank["Rank by:
-                  - Similarity score
-                  - Recency
-                  - Metadata weight"]
     
             format["Format as:
                     - Title
@@ -58,7 +50,7 @@ flowchart TD
     
             return([Return result list])
     
-            user-->|Search query| start --> embed --> search --> filter --> rank --> format --> return
+            user-->|Search query| start --> embed --> search --> format --> return
             
         end
         
