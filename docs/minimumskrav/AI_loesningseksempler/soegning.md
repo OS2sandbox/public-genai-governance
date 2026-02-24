@@ -57,7 +57,7 @@ flowchart TD
         search <--> vdb
         
     end
-    system -->|Læserettigheder| minutes
+    system -->|Læseadgang| minutes
     
     return --> results
 
