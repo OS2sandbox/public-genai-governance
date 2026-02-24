@@ -57,11 +57,11 @@ config:
   theme: default
 ---
 block
-  columns 4
+  columns 3
   
   classDef title fill:none, stroke-width:0px
   
-  dia_title["AI modeller - “GenAI”/Transformerbaseret (mostly)/New stuff"]:4
+  dia_title["AI modeller - “GenAI”/Transformerbaseret (mostly)/New stuff"]:3
   class dia_title title
   
   llm["Sprogmodeller"]
